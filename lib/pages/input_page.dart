@@ -10,6 +10,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+     String seciliCinsiyet='default';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,19 +22,39 @@ class _InputPageState extends State<InputPage> {
         ),
         centerTitle: true,
       ),
-      body: const Column(
+      body:  Column(
         children: [
-          Row(
+          const Row(
             children: [
               Expanded(
                 child: MyContainer(
-                  renk: Colors.white,
+
                   child: Column(),
                 ),
               ),
               Expanded(
                 child: MyContainer(
-                  renk: Colors.white,
+
+                  child: Column(),
+                ),
+              ),
+            ],
+          ),
+          const Row(
+            children: [
+              Expanded(
+                child: MyContainer(
+
+                  child: Column(),
+                ),
+              ),
+            ],
+          ),
+          const Row(
+            children: [
+              Expanded(
+                child: MyContainer(
+
                   child: Column(),
                 ),
               ),
@@ -42,63 +63,67 @@ class _InputPageState extends State<InputPage> {
           Row(
             children: [
               Expanded(
-                child: MyContainer(
-                  renk: Colors.white,
-                  child: Column(),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: MyContainer(
-                  renk: Colors.white,
-                  child: Column(),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Expanded(
-                child: MyContainer(
-                  renk: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.venus,
-                        size: 50,
-                        color: Colors.black54,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        'KADIN',
-                        style: TextStyle(color: Colors.black54, fontSize: 30),
-                      )
-                    ],
+                child: GestureDetector(
+                  onTap: (){
+
+                    setState(() {
+                      seciliCinsiyet='KADIN';
+                    });
+                    print(seciliCinsiyet);
+
+
+                  },
+                  child:  MyContainer(
+                    renk: seciliCinsiyet=='KADIN'?Colors.purple:Colors.white ,
+
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.venus,
+                          size: 50,
+                          color: Colors.black54,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'KADIN',
+                          style: TextStyle(color: Colors.black54, fontSize: 30),
+                        )
+                      ],
+                    ),
                   ),
+
                 ),
               ),
-              Expanded(
-                child: MyContainer(
-                  renk: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        FontAwesomeIcons.mars,
-                        size: 50,
-                        color: Colors.black54,
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text('ERKEK',style: TextStyle(color: Colors.black54,fontSize: 30),)
-                    ],
+               Expanded(
+                child: GestureDetector(
+                  onTap: (){
+
+                    setState(() {
+                      seciliCinsiyet='ERKEK';
+                    });
+                    print(seciliCinsiyet);
+                  }
+                  ,
+                  child:  MyContainer(
+                    renk: seciliCinsiyet=='ERKEK'?Colors.blue:Colors.white ,
+
+                    child: const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.mars,
+                          size: 50,
+                          color: Colors.black54,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text('ERKEK',style: TextStyle(color: Colors.black54,fontSize: 30),)
+                      ],
+                    ),
                   ),
                 ),
               ),

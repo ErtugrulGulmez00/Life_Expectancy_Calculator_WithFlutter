@@ -5,7 +5,7 @@ class MyContainer extends StatelessWidget {
   final Color renk;
   final Widget child;
   const MyContainer({
-    required this.renk,
+    this.renk=Colors.white,
     super.key,
     required this.child,
   });
@@ -13,12 +13,12 @@ class MyContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: child,
       margin: const EdgeInsets.all(12.0),
       height: 150,
       width: 150,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: Colors.white),
+          borderRadius: BorderRadius.circular(10.0), color: renk),
+      child: child,
     );
   }
 }
