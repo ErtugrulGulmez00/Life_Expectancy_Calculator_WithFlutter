@@ -5,12 +5,18 @@ import 'myContainer.dart';
 
 
 class InputPage extends StatefulWidget {
+  const InputPage({super.key});
+
   @override
   _InputPageState createState() => _InputPageState();
 }
 
 class _InputPageState extends State<InputPage> {
      String seciliCinsiyet='default';
+     double sigarasayisi=15.0;
+     late Color sigarasayirengi;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +56,29 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           ),
-          const Row(
+            Row(
             children: [
               Expanded(
                 child: MyContainer(
 
-                  child: Column(),
+                  child: Column(
+                    children: [
+                       Text('Günde kaç adet sigara tüketiyorsunuz ?',style: TextStyle(color: Colors.lightBlue, fontSize: 20),),
+
+                      Text(sigarasayisi.round().toString(),style:  TextStyle(color: Colors.blue, fontSize: 20),),
+                      Slider(
+                        min: 0,
+                        max: 30,
+                        value: sigarasayisi,
+                        onChanged: (double newValue){
+                          setState(() {
+                            sigarasayisi=newValue;
+                          });
+                        },
+                      )
+
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -69,7 +92,7 @@ class _InputPageState extends State<InputPage> {
                     setState(() {
                       seciliCinsiyet='KADIN';
                     });
-                    print(seciliCinsiyet);
+
 
 
                   },
@@ -104,7 +127,7 @@ class _InputPageState extends State<InputPage> {
                     setState(() {
                       seciliCinsiyet='ERKEK';
                     });
-                    print(seciliCinsiyet);
+
                   }
                   ,
                   child:  MyContainer(
@@ -134,5 +157,8 @@ class _InputPageState extends State<InputPage> {
     );
   }
 }
+
+
+
 
 
