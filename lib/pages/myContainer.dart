@@ -12,13 +12,20 @@ class MyContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(12.0),
-      height: 150,
-      width: 150,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: renk),
-      child: child,
+    return Row(
+      children: [
+        Expanded(
+          child: Container(
+            margin: const EdgeInsets.all(12.0),
+            height: 150,
+            width: 150,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0), color: renk),
+            child: child,
+          ),
+        ),
+        
+      ],
     );
   }
 }
