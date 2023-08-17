@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:yasam_suresi_hesaplama/pages/result_page.dart';
+import 'package:yasam_suresi_hesaplama/pages/user_data.dart';
 
 import 'myContainer.dart';
 
@@ -20,7 +22,6 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.green,
       appBar: AppBar(
         title: const Text(
@@ -197,9 +198,20 @@ class _InputPageState extends State<InputPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     ElevatedButton(
-                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.lightBlue),
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ResultPage(UserData(
+                                    boy: boy,
+                                    kilo: kilo,
+                                    seciliCinsiyet: seciliCinsiyet,
+                                    sigarasayisi: sigarasayisi,
+                                    sporgunu: sigarasayisi))));
+                      },
                       child: const Text(
                         'Sonucu görmek için TIKLA',
                         style: TextStyle(
