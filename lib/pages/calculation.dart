@@ -7,7 +7,7 @@ class Hesaplama{
   double hesaplama(){
 
     double sonuc;
-    sonuc=70 + _userData.sporgunu - _userData.sigarasayisi;
+    sonuc=70 + _userData.sporgunu - _userData.sigarasayisi*1.5;
     sonuc=sonuc + (_userData.boy/_userData.kilo);
 
    if(_userData.seciliCinsiyet=='KADIN') {
