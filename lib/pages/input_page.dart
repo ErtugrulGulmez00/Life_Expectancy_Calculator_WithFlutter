@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'myContainer.dart';
 
-
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
 
@@ -16,11 +15,12 @@ class _InputPageState extends State<InputPage> {
   double sigarasayisi = 15.0;
   double sporgunu = 3.0;
   int boy = 170;
-  int kilo=65;
+  int kilo = 65;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.green,
       appBar: AppBar(
         title: const Text(
@@ -35,27 +35,28 @@ class _InputPageState extends State<InputPage> {
             children: [
               Expanded(
                 child: MyContainer(
-                  child: buildRowOutlinedButton(boy,),
+                  child: buildRowOutlinedButton(
+                    boy,
+                  ),
                 ),
               ),
               Expanded(
                 child: MyContainer(
-                  child: buildRowOutlinedButton(kilo,),
-
+                  child: buildRowOutlinedButton(
+                    kilo,
+                  ),
                 ),
               ),
             ],
           ),
-
           Row(
             children: [
               Expanded(
                 child: MyContainer(
-                  child:
-                  Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       Text(
+                      Text(
                         'Haftada kaç gün spor yapıyorsunuz ?',
                         style: buildTextStyleForQuestion(),
                       ),
@@ -66,7 +67,7 @@ class _InputPageState extends State<InputPage> {
                         sporgunu.round().toString(),
                         style: TextStyle(
                             color:
-                            sporgunu == 0 ? Colors.red : Colors.lightBlue,
+                                sporgunu == 0 ? Colors.red : Colors.lightBlue,
                             fontSize: 30,
                             fontWeight: FontWeight.bold),
                       ),
@@ -87,17 +88,14 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           ),
-
-
           Row(
             children: [
-
               Expanded(
                 child: MyContainer(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       Text(
+                      Text(
                         'Günde kaç adet sigara tüketiyorsunuz ?',
                         style: buildTextStyleForQuestion(),
                       ),
@@ -193,6 +191,29 @@ class _InputPageState extends State<InputPage> {
               ),
             ],
           ),
+          Row(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Sonucu görmek için TIKLA',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
@@ -200,72 +221,72 @@ class _InputPageState extends State<InputPage> {
 
   TextStyle buildTextStyleForQuestion() {
     return const TextStyle(
-
-                          color: Colors.lightBlue,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold);
+        color: Colors.lightBlue, fontSize: 20, fontWeight: FontWeight.bold);
   }
 
   Row buildRowOutlinedButton(label) {
     return Row(
-                  children: [
-                     Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: RotatedBox(
-                          quarterTurns: 3,
-                          child: Text(
-                            label==boy?'BOY':'KİLO',
-                            style: const TextStyle(
-                                color: Colors.lightBlue,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    RotatedBox(
-                        quarterTurns: 3,
-                        child: Text(
-                          label.toString(),
-                          style: const TextStyle(
-                              color: Colors.lightBlue,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        )),
-                    const SizedBox(
-                      width: 15,
-                    ),
-                    Column( mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        ButtonTheme(
-
-                          minWidth: 36,
-                            child: OutlinedButton(
-
-                              onPressed: () {
-                                setState(() {
-                                  label==boy? boy++:kilo++;
-                                });
-                              },
-                              child: const Icon(FontAwesomeIcons.plus,size: 15,),
-
-                            ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        ButtonTheme(
-                            minWidth: 36,
-                            child: OutlinedButton(onPressed: () {
-                              setState(() {
-                                label==boy? boy--:kilo--;
-                              });
-                            }, child: const Icon(FontAwesomeIcons.minus,size: 15), )),
-                      ],
-                    ),
-                  ],
-                );
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: RotatedBox(
+              quarterTurns: 3,
+              child: Text(
+                label == boy ? 'BOY' : 'KİLO',
+                style: const TextStyle(
+                    color: Colors.lightBlue,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              )),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        RotatedBox(
+            quarterTurns: 3,
+            child: Text(
+              label.toString(),
+              style: const TextStyle(
+                  color: Colors.lightBlue,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
+            )),
+        const SizedBox(
+          width: 15,
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ButtonTheme(
+              minWidth: 36,
+              child: OutlinedButton(
+                onPressed: () {
+                  setState(() {
+                    label == boy ? boy++ : kilo++;
+                  });
+                },
+                child: const Icon(
+                  FontAwesomeIcons.plus,
+                  size: 15,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            ButtonTheme(
+                minWidth: 36,
+                child: OutlinedButton(
+                  onPressed: () {
+                    setState(() {
+                      label == boy ? boy-- : kilo--;
+                    });
+                  },
+                  child: const Icon(FontAwesomeIcons.minus, size: 15),
+                )),
+          ],
+        ),
+      ],
+    );
   }
 }
-
